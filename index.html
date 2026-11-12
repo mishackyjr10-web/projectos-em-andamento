@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AURORA Viagens</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1d1f;--mute:#6d7377;--line:#e8e8e6;--soft:#f6f5f2;--acc:#0b8a94}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+h1,h2,h3{font-family:Fraunces,serif;font-weight:400;line-height:1.08;letter-spacing:-.015em}
+h2{font-size:clamp(34px,4.6vw,56px);margin-bottom:14px}
+.lead{color:var(--mute);font-size:18px;max-width:540px;margin-bottom:44px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;padding:15px 30px;border-radius:40px;font:600 15px Figtree;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn.dark{background:var(--ink)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+header{position:fixed;inset:0 0 auto;z-index:50;color:#fff;transition:.3s}
+header.s{background:rgba(255,255,255,.94);color:var(--ink);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo{font:600 24px Fraunces;letter-spacing:.04em}
+nav{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:500}
+@media(max-width:860px){nav a:not(.btn){display:none}}
+.hero{position:relative;min-height:100vh;color:#fff;display:flex;align-items:center}
+.hero .bg{position:absolute;inset:0;background:linear-gradient(135deg,#0b8a94,#0a4f5a)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0003,#0006)}
+.hero .wrap{position:relative;padding-top:80px;width:100%}
+.hero h1{font-size:clamp(46px,8vw,104px);max-width:820px;animation:up 1.1s both}
+.hero p{font-size:20px;max-width:460px;margin:20px 0 38px;opacity:.92;animation:up 1.1s .15s both}
+@keyframes up{from{opacity:0;transform:translateY(26px)}}
+.search{background:#fff;color:var(--ink);border-radius:18px;padding:14px;display:grid;grid-template-columns:1.4fr 1fr .8fr auto;gap:10px;max-width:860px;animation:up 1.1s .3s both}
+@media(max-width:760px){.search{grid-template-columns:1fr 1fr}.search .btn{grid-column:span 2}}
+.search label{display:block;font-size:12px;color:var(--mute);padding:0 4px}
+select,input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:500 15px Figtree;background:#fff}
+.dest{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.dest{grid-template-columns:1fr 1fr}}
+.dest button{position:relative;aspect-ratio:3/4;border:0;border-radius:16px;overflow:hidden;cursor:pointer;color:#fff;text-align:left;font:inherit;background:linear-gradient(135deg,#0b8a94,#0a4f5a)}
+.dest img{transition:transform .8s}.dest button:hover img{transform:scale(1.07)}
+.dest span{position:absolute;inset:auto 0 0;padding:24px 18px;background:linear-gradient(transparent,#000a);font:400 26px Fraunces}
+.dest small{display:block;font:400 13px Figtree;opacity:.85}
+.pk{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+@media(max-width:1000px){.pk{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.pk{grid-template-columns:1fr 1fr}}@media(max-width:480px){.pk{grid-template-columns:1fr}}
+.card{text-align:left;background:none;border:0;cursor:pointer;font:inherit;color:inherit}
+.card .ph{aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#d9ecee,#b7d8dc)}.card img{transition:transform .7s}.card:hover img{transform:scale(1.06)}
+.card h3{font-size:21px;margin:12px 0 2px}.card p{color:var(--mute);font-size:14px}
+.card b{display:block;margin-top:4px}
+.soft{background:var(--soft)}
+.hot{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:860px){.hot{grid-template-columns:1fr}}
+.hot .ph{aspect-ratio:3/2;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#d9ecee,#b7d8dc)}.hot h3{font-size:24px;margin:14px 0 2px}.hot p{color:var(--mute)}
+.band{position:relative;height:460px;color:#fff;display:flex;align-items:center}
+.band .bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a4f5a,#0b8a94)}.band .bg::after{content:"";position:absolute;inset:0;background:#0005}.band .wrap{position:relative}
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}@media(max-width:860px){.rev{grid-template-columns:1fr}}
+.rev p{font:400 20px Fraunces;margin-bottom:16px}.rev div{display:flex;gap:12px;align-items:center}
+.av{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:#ccc}.rev small{display:block;color:var(--mute)}
+.dash{background:var(--ink);color:#fff}.dash .lead{color:#aab}
+.rs{display:grid;gap:12px}
+.r{display:grid;grid-template-columns:90px 1fr auto;gap:16px;align-items:center;border:1px solid #333;border-radius:14px;padding:12px}
+.r .ph{width:90px;height:70px;border-radius:10px;overflow:hidden;background:#0a4f5a}.r small{color:#aab;display:block}
+.tag{background:#12363a;color:#6fe0ea;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.empty{border:1px dashed #444;border-radius:14px;padding:30px;color:#aab;text-align:center}
+.modal{position:fixed;inset:0;background:#000b;display:none;z-index:100;overflow:auto;padding:20px}.modal.open{display:block}
+.sheet{background:#fff;max-width:880px;margin:30px auto;border-radius:20px;overflow:hidden;animation:up .4s both}
+.sheet .top{height:340px;background:linear-gradient(135deg,#0b8a94,#0a4f5a)}.sheet .in{padding:34px}.sheet h2{font-size:42px}
+.x{position:absolute;right:16px;top:16px;background:#fff;border:0;width:40px;height:40px;border-radius:50%;font-size:22px;cursor:pointer;z-index:2}
+.it{border-left:2px solid var(--acc);padding:0 0 18px 20px;margin-left:6px}.it b{display:block}.it span{color:var(--mute)}
+.bk{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}.bk label{font-size:13px;font-weight:600;display:block;margin-bottom:5px}
+.sum{background:var(--soft);border-radius:14px;padding:22px}.sum .p{font:400 40px Fraunces;color:var(--acc)}
+footer{padding:48px 0;border-top:1px solid var(--line);color:var(--mute);font-size:14px}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header id="h"><div class="wrap"><a class="logo" href="#">Aurora</a>
+<nav><a href="#destinos">Destinos</a><a href="#pacotes">Pacotes</a><a href="#hoteis">Hotéis</a><a href="#conta">As minhas reservas</a><a class="btn" href="#pacotes">Reservar</a></nav></div></header>
+
+<section class="hero">
+<div class="bg"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" alt="Praia tropical" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200&auto=format&fit=crop'"></div>
+<div class="wrap"><h1>O próximo amanhecer é seu.</h1><p>Praias, safaris e hotéis escolhidos à mão por todo Moçambique.</p>
+<div class="search"><div><label for="sd">Destino</label><select id="sd"><option>Todos</option><option>Tofo</option><option>Vilankulo</option><option>Gorongosa</option><option>Maputo</option><option>Bazaruto</option></select></div>
+<div><label for="sdt">Data</label><input id="sdt" type="date"></div><div><label for="sp">Pessoas</label><input id="sp" type="number" min="1" max="12" value="2"></div>
+<button class="btn" onclick="pesq()">Pesquisar</button></div></div>
+</section>
+
+<section id="destinos"><div class="wrap"><h2>Para onde?</h2><p class="lead">Quatro lugares que dão vontade de fazer a mala hoje.</p>
+<div class="dest" id="ds"></div></div></section>
+
+<section class="soft" id="pacotes"><div class="wrap"><h2>Pacotes</h2><p class="lead" id="pl">Escolha um pacote para ver o itinerário dia a dia e reservar.</p>
+<div class="pk" id="pk"></div></div></section>
+
+<section class="band"><div class="bg"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop" alt="Avião no céu" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1520454974749-611b7248ffdb?q=80&w=1200&auto=format&fit=crop'"></div>
+<div class="wrap"><h2 style="max-width:620px">Voos, transferes e guias já incluídos.</h2></div></section>
+
+<section id="hoteis"><div class="wrap"><h2>Hotéis</h2><p class="lead">Estadias com piscina, mar e silêncio.</p>
+<div class="hot" id="ht"></div></div></section>
+
+<section class="dash" id="conta"><div class="wrap"><h2>As minhas reservas</h2><p class="lead">Acompanhe as suas viagens e o estado de cada reserva.</p>
+<div class="rs" id="rs"></div></div></section>
+
+<section><div class="wrap"><h2>Viajantes contam</h2><p class="lead">Avaliações verificadas de quem já partiu.</p>
+<div class="rev">
+<div><p>“Acordámos em Tofo com baleias à vista. Tudo organizado ao detalhe.”</p><div><span class="av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop" alt="Viajante"></span><span><b>Sónia Mabunda</b><small>Tofo · 5 estrelas</small></span></div></div>
+<div><p>“O safari na Gorongosa foi a melhor semana da nossa família.”</p><div><span class="av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop" alt="Viajante"></span><span><b>Nelson Chissano</b><small>Gorongosa · 5 estrelas</small></span></div></div>
+<div><p>“Reservei em dois minutos e recebi tudo por mensagem. Impecável.”</p><div><span class="av"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop" alt="Viajante"></span><span><b>Tiago Langa</b><small>Vilankulo · 4,9 estrelas</small></span></div></div>
+</div></div></section>
+
+<footer><div class="wrap"><span class="logo">Aurora</span><span>Rua da Sé 12, Maputo · Projecto fictício</span><span>© 2026 Aurora Viagens</span></div></footer>
+
+<div class="modal" id="m"><div class="sheet" style="position:relative"><button class="x" onclick="cl()" aria-label="Fechar">×</button><div id="mc"></div></div></div>
+
+<script>
+const $=id=>document.getElementById(id),F=n=>n.toLocaleString('pt-PT');
+const U=id=>`https://images.unsplash.com/${id}?q=80&w=1200&auto=format&fit=crop`,FB=U('photo-1507525428034-b723cf961d3e');
+const im=(id,a)=>`<img src="${U(id)}" alt="${a}" onerror="this.onerror=null;this.src='${FB}'">`;
+const PK=[
+{n:'Tofo, mar aberto',d:'Tofo',days:5,p:28500,r:4.9,i:'photo-1520454974749-611b7248ffdb',it:['Chegada a Inhambane e transfer para Tofo','Mergulho com mantas e tubarões-baleia','Passeio de barco e snorkeling','Dia livre na praia e mercado local','Pequeno-almoço e regresso']},
+{n:'Vilankulo e Bazaruto',d:'Bazaruto',days:6,p:42900,r:4.9,i:'photo-1573843981267-be1999ff37cd',it:['Voo para Vilankulo','Barco tradicional (dhow) até Bazaruto','Dunas e lagoas','Mergulho nos recifes','Dia de praia privativa','Regresso']},
+{n:'Safari Gorongosa',d:'Gorongosa',days:4,p:36800,r:4.8,i:'photo-1516426122078-c23e76319801',it:['Chegada e jantar no lodge','Safari ao nascer do sol','Caminhada guiada e rio','Safari nocturno e regresso']},
+{n:'Maputo essencial',d:'Maputo',days:3,p:14900,r:4.7,i:'photo-1545324418-cc1a3fa10c00',it:['Baixa, mercados e gastronomia','Ilha da Inhaca de barco','Arte, café e despedida']},
+{n:'Tofo e Vilankulo',d:'Tofo',days:8,p:54900,r:5.0,i:'photo-1544551763-46a013bb70d5',it:['Chegada a Tofo','Mergulho','Praia','Viagem a Vilankulo','Barco dhow','Dunas','Dia livre','Regresso']},
+{n:'Gorongosa premium',d:'Gorongosa',days:5,p:61500,r:4.9,i:'photo-1547471080-7cc2caa01a7e',it:['Voo privado','Safari de 4x4','Observação de leões','Piquenique no rio','Regresso']},
+{n:'Fuga de casal',d:'Vilankulo',days:4,p:33800,r:4.8,i:'photo-1540541338287-41700207dee6',it:['Chegada e jantar na praia','Passeio ao pôr do sol','Spa e piscina','Regresso']},
+{n:'Maputo e Inhaca',d:'Maputo',days:4,p:19900,r:4.6,i:'photo-1571896349842-33c89424de2d',it:['Cidade','Inhaca','Snorkeling','Regresso']}];
+const D=[['Tofo','photo-1544551763-46a013bb70d5','Mergulho e baleias'],['Vilankulo','photo-1573843981267-be1999ff37cd','Ilhas de Bazaruto'],['Gorongosa','photo-1516426122078-c23e76319801','Safari e natureza'],['Maputo','photo-1545324418-cc1a3fa10c00','Cidade e cultura']];
+$('ds').innerHTML=D.map(d=>`<button onclick="$('sd').value='${d[0]}';pesq()">${im(d[1],d[0])}<span>${d[0]}<small>${d[2]}</small></span></button>`).join('');
+function pk(list){$('pk').innerHTML=list.length?list.map(p=>`<button class="card" onclick="det(${PK.indexOf(p)})"><div class="ph">${im(p.i,p.n)}</div><h3>${p.n}</h3><p>${p.days} dias · ★ ${p.r}</p><b>desde ${F(p.p)} MZN</b></button>`).join(''):'<p>Sem pacotes para este destino.</p>'}
+pk(PK);
+function pesq(){const d=$('sd').value;pk(d=='Todos'?PK:PK.filter(p=>p.d==d));$('pl').textContent=`${d=='Todos'?'Todos os pacotes':'Pacotes para '+d} · ${$('sp').value} pessoa(s)`;$('pacotes').scrollIntoView()}
+let cur;
+function det(i){cur=PK[i];const p=cur;$('mc').innerHTML=`<div class="top">${im(p.i,p.n)}</div><div class="in"><h2>${p.n}</h2><p style="color:var(--mute);margin-bottom:22px">${p.days} dias · ★ ${p.r} · desde ${F(p.p)} MZN por pessoa</p>
+${p.it.map((t,k)=>`<div class="it"><b>Dia ${k+1}</b><span>${t}</span></div>`).join('')}
+<h3 style="font-size:28px;margin-top:22px">Reservar</h3><div class="bk"><div><label for="bd">Data de partida</label><input id="bd" type="date"></div><div><label for="bp">Pessoas</label><input id="bp" type="number" min="1" max="12" value="${$('sp').value||2}"></div><div style="grid-column:span 2"><label for="bn">Nome completo</label><input id="bn"></div></div>
+<button class="btn" onclick="res()">Confirmar reserva</button><div class="sum" id="sm" style="display:none;margin-top:22px"></div></div>`;$('m').classList.add('open');$('m').scrollTop=0}
+function cl(){$('m').classList.remove('open')}
+document.onkeydown=e=>{if(e.key=='Escape')cl()};
+const R=[];
+function res(){const d=$('bd').value,n=$('bn').value.trim(),q=+$('bp').value||1;if(!d||!n){alert('Escolha a data e escreva o seu nome.');return}
+const t=cur.p*q,c='AUR-'+Math.floor(1000+Math.random()*9000);R.unshift({c,p:cur,d,q,t});
+$('sm').style.display='block';$('sm').innerHTML=`<b>Reserva confirmada, ${n}.</b><div class="p">${F(t)} MZN</div><div>${cur.n} · ${cur.days} dias · ${q} pessoa(s)<br>Partida: ${d} · Código ${c}</div>`;lista()}
+function lista(){$('rs').innerHTML=R.length?R.map(r=>`<div class="r"><div class="ph">${im(r.p.i,r.p.n)}</div><div><b>${r.p.n}</b><small>${r.d} · ${r.q} pessoa(s) · ${F(r.t)} MZN · ${r.c}</small></div><span class="tag">Confirmada</span></div>`).join(''):'<div class="empty">Ainda não tem reservas. Escolha um pacote e comece a viajar.</div>'}
+lista();
+const H=[['Casa do Mar, Tofo','photo-1566073771259-6a8506099945','Frente de praia · desde 6 800 MZN/noite'],['Lodge Baobá, Gorongosa','photo-1582719508461-905c673771fd','Safari lodge · desde 9 400 MZN/noite'],['Palmeiras Resort, Vilankulo','photo-1540541338287-41700207dee6','Piscina infinita · desde 8 200 MZN/noite']];
+$('ht').innerHTML=H.map(h=>`<div><div class="ph">${im(h[1],h[0])}</div><h3>${h[0]}</h3><p>${h[2]}</p></div>`).join('');
+addEventListener('scroll',()=>$('h').classList.toggle('s',scrollY>60));
+</script>
+</body>
+</html
