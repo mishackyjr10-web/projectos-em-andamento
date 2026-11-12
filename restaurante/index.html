@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MARÉ – Restaurante & Grill</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#161616;--mute:#6c6c6c;--line:#e8e8e6;--soft:#f5f5f3;--acc:#d6342a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.ph{background:linear-gradient(135deg,#e4e4e1,#cfcfcb);overflow:hidden}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(38px,5vw,62px);margin-bottom:14px}
+.lead{color:var(--mute);font-size:18px;max-width:520px;margin-bottom:44px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;padding:14px 28px;border-radius:40px;font:700 15px 'DM Sans';cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn.ghost{background:none;color:#fff;border:1px solid #fff8}.btn.dark{background:var(--ink)}.btn.sm{padding:9px 18px;font-size:13px}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+header{position:fixed;inset:0 0 auto;z-index:50;color:#fff;transition:.3s}header.s{background:#fffffa;color:var(--ink);box-shadow:0 1px 0 var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo{font:400 28px 'DM Serif Display';letter-spacing:.08em}
+nav{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:500}
+.cartb{position:relative;background:none;border:1px solid currentColor;color:inherit;border-radius:40px;padding:8px 18px;font:700 13px 'DM Sans';cursor:pointer}
+.cartb i{font-style:normal;background:var(--acc);color:#fff;border-radius:20px;padding:1px 8px;margin-left:6px}
+@media(max-width:860px){nav a{display:none}}
+.hero{position:relative;min-height:100vh;color:#fff;display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0;background:linear-gradient(135deg,#3b2a24,#161616)}.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0003,#000c)}
+.hero .wrap{position:relative;padding:150px 24px 90px;width:100%}
+.hero h1{font-size:clamp(52px,9vw,124px);max-width:860px;animation:up 1s both}
+.hero p{max-width:460px;font-size:19px;margin:22px 0 32px;opacity:.9;animation:up 1s .15s both}
+.hero .c{display:flex;gap:12px;flex-wrap:wrap;animation:up 1s .3s both}
+@keyframes up{from{opacity:0;transform:translateY(26px)}}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about .ph{aspect-ratio:4/5;border-radius:16px}
+.tabs{display:flex;gap:8px;margin-bottom:34px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:#fff;padding:10px 22px;border-radius:30px;font:600 14px 'DM Sans';cursor:pointer}.tabs .on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}@media(max-width:800px){.menu{grid-template-columns:1fr}}
+.it{display:grid;grid-template-columns:150px 1fr;gap:20px;border:1px solid var(--line);border-radius:16px;padding:14px;background:#fff}
+.it .ph{border-radius:12px;aspect-ratio:1}
+.it h3{font-size:24px}.it p{color:var(--mute);font-size:14px;margin:4px 0 10px}.it .r{display:flex;justify-content:space-between;align-items:center}.it b{font-size:17px}
+@media(max-width:480px){.it{grid-template-columns:110px 1fr}}
+.soft{background:var(--soft)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}@media(max-width:700px){.gal{grid-template-columns:1fr 1fr}}
+.gal .ph{aspect-ratio:1;border-radius:14px}.gal img{transition:transform .8s}.gal .ph:hover img{transform:scale(1.06)}
+.rv{display:grid;grid-template-columns:1fr 1fr;gap:56px}@media(max-width:860px){.rv{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px}
+select,input,textarea{width:100%;padding:13px 14px;border:1px solid #d8d8d5;border-radius:10px;font:500 15px 'DM Sans';background:#fff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ok{margin-top:20px;padding:24px;background:var(--ink);color:#fff;border-radius:14px}.ok h3{font-size:32px;color:#fff}
+.hours{list-style:none;margin-top:24px}.hours li{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line)}
+footer{padding:48px 0;background:var(--ink);color:#aaa;font-size:14px}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:#fff;z-index:120;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column;box-shadow:-20px 0 60px #0004}
+.dr.open{transform:none}
+.dr .hd{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}.dr .hd h3{font-size:30px}
+.dr .bd{flex:1;overflow:auto;padding:12px 24px}.dr .ft{padding:20px 24px;border-top:1px solid var(--line)}
+.x{background:none;border:0;font-size:28px;cursor:pointer}
+.ci{display:grid;grid-template-columns:1fr auto;gap:8px;padding:14px 0;border-bottom:1px solid var(--line)}.ci small{color:var(--mute)}
+.qty{display:flex;gap:10px;align-items:center}.qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:16px}
+.tot{display:flex;justify-content:space-between;font-size:20px;font-weight:700;margin-bottom:14px}
+.ov{position:fixed;inset:0;background:#0007;z-index:110;display:none}.ov.open{display:block}
+.empty{color:var(--mute);padding:40px 0;text-align:center}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:30px;font-size:14px;z-index:200;display:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header id="h"><div class="wrap"><a class="logo" href="#">MARÉ</a>
+<nav><a href="#menu">Menu</a><a href="#reserva">Reservas</a><a href="#local">Horários</a><button class="cartb" onclick="openC()">Pedido<i id="cn">0</i></button></nav></div></header>
+
+<section class="hero" style="padding:0">
+<div class="bg"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200&auto=format&fit=crop" alt="Prato de restaurante" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop'"></div>
+<div class="wrap"><h1>Peixe do dia. Brasa viva.</h1><p>Cozinha de mar e grelha em Maputo. Peça online e receba em casa ou levante no restaurante.</p>
+<div class="c"><a class="btn" href="#menu">Ver menu e pedir</a><a class="btn ghost" href="#reserva">Reservar mesa</a></div></div>
+</section>
+
+<section><div class="wrap about">
+<div class="ph"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop" alt="Interior do restaurante" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop'"></div>
+<div><h2>Cozinha simples, ingredientes certos.</h2><p class="lead" style="margin-bottom:0">Compramos o peixe todas as manhãs a pescadores da Costa do Sol e grelhamos tudo na brasa. Sem truques: produto fresco, sal, limão e fogo.</p></div>
+</div></section>
+
+<section class="soft" id="menu"><div class="wrap"><h2>Menu</h2><p class="lead">Escolha os pratos e adicione ao pedido.</p>
+<div class="tabs" id="tb"></div><div class="menu" id="mn"></div></div></section>
+
+<section><div class="wrap"><h2>O ambiente.</h2><p class="lead">Mesa com vista, música baixa e serviço atento.</p>
+<div class="gal">
+<div class="ph"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop" alt="Sala" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop'"></div>
+<div class="ph"><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=1200&auto=format&fit=crop" alt="Prato de peixe" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=1200&auto=format&fit=crop'"></div>
+<div class="ph"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=1200&auto=format&fit=crop" alt="Bebidas" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop'"></div>
+</div></div></section>
+
+<section class="soft" id="reserva"><div class="wrap rv">
+<div><h2>Reservar mesa.</h2><p class="lead">Confirmamos por mensagem em poucos minutos.</p>
+<ul class="hours" id="local"><li><span>Segunda a quinta</span><span>12:00 – 22:30</span></li><li><span>Sexta e sábado</span><span>12:00 – 00:00</span></li><li><span>Domingo</span><span>12:00 – 21:00</span></li></ul></div>
+<div id="rf"><label for="rn">Nome</label><input id="rn"><label for="rt">Telefone</label><input id="rt">
+<div class="row"><div><label for="rd">Data</label><input id="rd" type="date"></div><div><label for="rh">Hora</label><select id="rh"><option>12:30</option><option>13:30</option><option>19:00</option><option selected>20:00</option><option>21:00</option></select></div></div>
+<label for="rp">Pessoas</label><input id="rp" type="number" min="1" max="12" value="2">
+<button class="btn" style="margin-top:20px" onclick="reserva()">Confirmar reserva</button></div>
+</div></section>
+
+<footer><div class="wrap"><span class="logo" style="font-size:22px;color:#fff">MARÉ</span><span>Av. da Marginal 540, Maputo · Projecto fictício</span><span>© 2026 Maré Restaurante & Grill</span></div></footer>
+
+<div class="ov" id="ov" onclick="closeC()"></div>
+<aside class="dr" id="dr" aria-label="O seu pedido"><div class="hd"><h3>O seu pedido</h3><button class="x" onclick="closeC()" aria-label="Fechar">×</button></div><div class="bd" id="cb"></div><div class="ft" id="cf"></div></aside>
+<div class="toast" id="ts"></div>
+
+<script>
+const $=id=>document.getElementById(id),F=n=>n.toLocaleString('pt-PT')+' MZN';
+const FB='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1200&auto=format&fit=crop';
+const im=(id,a)=>`<img src="https://images.unsplash.com/${id}?q=80&w=1200&auto=format&fit=crop" alt="${a}" loading="lazy" onerror="this.onerror=null;this.src='${FB}'">`;
+const MN=[
+{id:1,c:'Entradas',n:'Salada fresca da horta',d:'Folhas, tomate, abacate e limão.',p:320,i:'photo-1540189549336-e6e99c3679fe'},
+{id:2,c:'Entradas',n:'Bruschetta de tomate',d:'Pão da casa, tomate e manjericão.',p:280,i:'photo-1482049016688-2d3e1b311543'},
+{id:3,c:'Entradas',n:'Lulas fritas',d:'Crocantes, com molho de piri-piri suave.',p:420,i:'photo-1476224203421-9ac39bcb3327'},
+{id:4,c:'Pratos',n:'Peixe grelhado do dia',d:'Com arroz de coco e legumes salteados.',p:780,i:'photo-1519708227418-c8fd9a32b7a2'},
+{id:5,c:'Pratos',n:'Salmão com legumes',d:'Grelhado na brasa, puré e espargos.',p:890,i:'photo-1467003909585-2f8a72700288'},
+{id:6,c:'Pratos',n:'Massa de marisco',d:'Camarão, mexilhão e molho de tomate.',p:720,i:'photo-1473093295043-cdd812d0e601'},
+{id:7,c:'Pratos',n:'Hambúrguer da casa',d:'Carne maturada, queijo e batata rústica.',p:540,i:'photo-1551782450-a2132b4ba21d'},
+{id:8,c:'Pratos',n:'Pizza margherita',d:'Massa fina, mozarela e manjericão.',p:480,i:'photo-1513104890138-7c749659a591'},
+{id:9,c:'Sobremesas',n:'Mousse de chocolate',d:'Chocolate negro e flor de sal.',p:260,i:'photo-1551024506-0bccd828d307'},
+{id:10,c:'Sobremesas',n:'Cheesecake de frutos',d:'Base crocante e calda de frutos vermelhos.',p:290,i:'photo-1565958011703-44f9829ba187'},
+{id:11,c:'Bebidas',n:'Cocktail da casa',d:'Rum, lima, hortelã e gelo.',p:350,i:'photo-1544145945-f90425340c7e'},
+{id:12,c:'Bebidas',n:'Sumo natural',d:'Fruta da estação, sem açúcar.',p:120,i:'photo-1513558161293-cdaf765ed2fd'}];
+const CT=['Entradas','Pratos','Sobremesas','Bebidas'];let cat='Entradas',cart={};
+function menu(){$('tb').innerHTML=CT.map(c=>`<button class="${c==cat?'on':''}" onclick="cat='${c}';menu()">${c}</button>`).join('');
+$('mn').innerHTML=MN.filter(m=>m.c==cat).map(m=>`<div class="it"><div class="ph">${im(m.i,m.n)}</div><div><h3>${m.n}</h3><p>${m.d}</p><div class="r"><b>${F(m.p)}</b><button class="btn sm" onclick="add(${m.id})">Adicionar</button></div></div></div>`).join('')}
+menu();
+function add(id){cart[id]=(cart[id]||0)+1;upd();toast(MN.find(m=>m.id==id).n+' adicionado')}
+function chg(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];upd()}
+const total=()=>Object.entries(cart).reduce((s,[id,q])=>s+MN.find(m=>m.id==id).p*q,0);
+function upd(){$('cn').textContent=Object.values(cart).reduce((a,b)=>a+b,0);const e=Object.entries(cart);
+$('cb').innerHTML=e.length?e.map(([id,q])=>{const m=MN.find(x=>x.id==id);return `<div class="ci"><div><b>${m.n}</b><br><small>${F(m.p*q)}</small></div><div class="qty"><button onclick="chg(${id},-1)" aria-label="Menos">−</button>${q}<button onclick="chg(${id},1)" aria-label="Mais">+</button></div></div>`}).join(''):'<div class="empty">O pedido está vazio. Escolha pratos no menu.</div>';
+$('cf').innerHTML=e.length?`<div class="tot"><span>Total</span><span>${F(total())}</span></div><button class="btn" style="width:100%" onclick="checkout()">Finalizar pedido</button>`:''}
+upd();
+function openC(){$('dr').classList.add('open');$('ov').classList.add('open')}
+function closeC(){$('dr').classList.remove('open');$('ov').classList.remove('open')}
+function checkout(){$('cb').innerHTML=`<label for="on">Nome</label><input id="on"><label for="ot">Telefone</label><input id="ot"><label for="oy">Como quer receber?</label><select id="oy" onchange="$('oa').style.display=this.value=='Entrega'?'block':'none'"><option>Entrega</option><option>Levantar no restaurante</option><option>Comer no local</option></select><div id="oa"><label for="oad">Morada de entrega</label><input id="oad" placeholder="Rua, bairro, referência"></div><label for="ono">Notas (opcional)</label><input id="ono" placeholder="Sem picante, alergias...">`;
+$('cf').innerHTML=`<div class="tot"><span>Total</span><span>${F(total()+ (0))}</span></div><button class="btn" style="width:100%" onclick="confirmar()">Confirmar pedido</button>`}
+function confirmar(){const n=$('on').value.trim(),t=$('ot').value.trim(),y=$('oy').value;
+if(!n||!t||(y=='Entrega'&&!$('oad').value.trim())){toast('Preencha nome, telefone e morada');return}
+const num='M-'+Math.floor(1000+Math.random()*9000),mins=y=='Entrega'?45:25,tot=total();cart={};upd();
+$('cb').innerHTML=`<div class="ok"><h3>Pedido recebido, ${n}.</h3><p style="margin-top:10px">Número <b>${num}</b><br>${y} · pronto em cerca de ${mins} minutos<br>Total: ${F(tot)} (pagamento na ${y=='Entrega'?'entrega':'chegada'})</p></div>`;
+$('cf').innerHTML=`<button class="btn dark" style="width:100%" onclick="closeC()">Fechar</button>`}
+function reserva(){if(!$('rn').value.trim()||!$('rt').value.trim()||!$('rd').value){toast('Preencha nome, telefone e data');return}
+$('rf').innerHTML=`<div class="ok"><h3>Mesa reservada.</h3><p style="margin-top:10px">${$('rn').value}, esperamos por si a ${$('rd').value} às ${$('rh').value}, para ${$('rp').value} pessoa(s). Enviamos a confirmação para ${$('rt').value}.</p></div>`}
+function toast(t){const e=$('ts');e.textContent=t;e.style.display='block';clearTimeout(e._t);e._t=setTimeout(()=>e.style.display='none',2200)}
+document.onkeydown=e=>{if(e.key=='Escape')closeC()};
+addEventListener('scroll',()=>$('h').classList.toggle('s',scrollY>60));
+</script>
+</body>
+</html>
