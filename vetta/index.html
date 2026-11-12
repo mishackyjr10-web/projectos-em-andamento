@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VETTA Construções</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#161616;--mute:#686868;--line:#e5e5e3;--soft:#f4f4f2;--acc:#f0a500}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Barlow,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+h2{font-size:clamp(38px,5vw,64px);margin-bottom:14px}
+.lead{color:var(--mute);font-size:18px;max-width:540px;margin-bottom:48px}
+.btn{display:inline-block;background:var(--acc);color:#161616;border:0;padding:15px 30px;font:600 15px Barlow;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn.dark{background:var(--ink);color:#fff}.btn.ghost{background:none;color:#fff;border:1px solid #fff8}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{font:700 26px 'Barlow Condensed';letter-spacing:.14em}.logo i{color:var(--acc);font-style:normal}
+nav{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:500}
+@media(max-width:860px){nav a{display:none}}
+.hero{position:relative;min-height:100vh;color:#fff;display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0;background:linear-gradient(135deg,#3a3a3a,#161616)}.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0004,#000c)}
+.hero .wrap{position:relative;padding:140px 24px 90px;width:100%}
+.hero h1{font-size:clamp(56px,10vw,150px);max-width:950px;animation:up 1s both}
+.hero p{max-width:480px;font-size:19px;margin:22px 0 32px;opacity:.9;animation:up 1s .15s both}
+.hero .c{display:flex;gap:12px;flex-wrap:wrap;animation:up 1s .3s both}
+@keyframes up{from{opacity:0;transform:translateY(28px)}}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.nums div{padding:34px 24px;border-right:1px solid var(--line)}.nums div:last-child{border:0}
+.nums b{font:700 48px 'Barlow Condensed';display:block}.nums span{color:var(--mute);font-size:14px}
+@media(max-width:700px){.nums{grid-template-columns:1fr 1fr}}
+.filters{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.filters button{border:1px solid var(--line);background:#fff;padding:9px 18px;font:500 14px Barlow;cursor:pointer}
+.filters .on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.obra{cursor:pointer;background:none;border:0;text-align:left;font:inherit;color:inherit}
+.obra .ph{aspect-ratio:4/3;overflow:hidden;position:relative;background:linear-gradient(135deg,#d9d9d6,#b5b5b1)}
+.obra img{transition:transform .7s}.obra:hover img{transform:scale(1.06)}
+.obra .st{position:absolute;left:12px;top:12px;background:#fff;padding:4px 12px;font-size:12px;font-weight:600}
+.obra h3{font-size:26px;margin:14px 0 2px}.obra p{color:var(--mute);font-size:14px}
+.bar{height:6px;background:var(--line);margin-top:12px}.bar i{display:block;height:100%;background:var(--acc)}
+.band{background:var(--soft)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media(max-width:860px){.two{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+select,input,textarea{width:100%;padding:13px 14px;border:1px solid #d6d6d3;background:#fff;font:500 15px Barlow;border-radius:0}
+.res{margin-top:22px;padding:24px;background:var(--ink);color:#fff;min-height:96px}
+.res .p{font:700 46px 'Barlow Condensed';color:var(--acc)}.res small{color:#aaa}
+.dash{background:var(--ink);color:#fff}.dash .lead{color:#aaa}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+@media(max-width:800px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{border:1px solid #333;padding:24px}.kpi b{font:700 48px 'Barlow Condensed';display:block}.kpi span{color:#aaa;font-size:14px}
+.box{border:1px solid #333;padding:26px;overflow-x:auto}.box h3{font-size:24px;margin-bottom:18px}
+table{width:100%;min-width:520px;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:#888;font-weight:500;padding:10px 8px;border-bottom:1px solid #333}td{padding:14px 8px;border-bottom:1px solid #262626}
+.mini{height:6px;background:#333;width:120px;display:inline-block;vertical-align:middle}.mini i{display:block;height:100%;background:var(--acc)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:860px){.quotes{grid-template-columns:1fr}}
+.q p{font-size:18px;margin-bottom:18px}.q div{display:flex;gap:12px;align-items:center}
+.q .av{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;background:#ccc}.q small{display:block;color:var(--mute)}
+.modal{position:fixed;inset:0;background:#000b;display:none;z-index:100;overflow:auto;padding:20px}
+.modal.open{display:block}
+.sheet{background:#fff;max-width:900px;margin:30px auto;animation:up .4s both}
+.sheet .gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:200px 200px;gap:4px}
+.sheet .gal div:first-child{grid-row:span 2}.sheet .gal div{overflow:hidden;background:linear-gradient(135deg,#d9d9d6,#b5b5b1)}
+.sheet .in{padding:34px}.sheet h2{font-size:48px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0}
+.facts b{display:block;font:700 28px 'Barlow Condensed'}.facts span{color:var(--mute);font-size:13px}
+.x{position:sticky;float:right;top:10px;right:10px;margin:10px;background:#fff;border:0;width:38px;height:38px;font-size:22px;cursor:pointer;z-index:2}
+footer{padding:48px 0;border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#">VETTA<i>.</i></a>
+<nav><a href="#obras">Obras</a><a href="#orcamento">Orçamento</a><a href="#painel">Painel</a><a href="#clientes">Clientes</a><a class="btn" href="#visita">Pedir visita</a></nav></div></header>
+
+<section class="hero">
+<div class="bg"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop" alt="Grua numa obra" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop'"></div>
+<div class="wrap"><h1>Construímos o que fica.</h1>
+<p>Edifícios, moradias e infraestruturas em Maputo, entregues no prazo e com rigor de engenharia.</p>
+<div class="c"><a class="btn" href="#orcamento">Pedir orçamento</a><a class="btn ghost" href="#obras">Ver obras</a></div></div>
+</section>
+
+<div class="wrap nums">
+<div><b data-n="22">0</b><span>Anos de experiência</span></div><div><b data-n="146">0</b><span>Obras concluídas</span></div>
+<div><b data-n="480">0</b><span>Trabalhadores</span></div><div><b data-n="0">0</b><span>Acidentes graves em 2025</span></div></div>
+
+<section id="obras"><div class="wrap">
+<h2>Obras</h2><p class="lead">Clique numa obra para ver fotos, progresso e dados técnicos.</p>
+<div class="filters" id="fl"></div><div class="grid" id="gr"></div>
+</div></section>
+
+<section class="band" id="orcamento"><div class="wrap two">
+<div><h2>Orçamento online</h2><p class="lead">Estimativa imediata em meticais. A proposta final segue após visita técnica.</p>
+<label for="tp">Tipo de obra</label><select id="tp"><option value="32000">Moradia</option><option value="38000">Edifício de apartamentos</option><option value="30000">Armazém / industrial</option><option value="42000">Escritórios / comercial</option><option value="16000">Reabilitação</option></select>
+<label for="ar">Área (m²)</label><input id="ar" type="number" value="250" min="20">
+<label for="ac">Acabamento</label><select id="ac"><option value="1">Standard</option><option value="1.25">Superior</option><option value="1.55">Premium</option></select>
+<button class="btn dark" style="margin-top:20px" onclick="orc()">Calcular valor</button>
+<div class="res" id="or"><small>O valor estimado aparece aqui.</small></div></div>
+<div style="aspect-ratio:4/5;background:linear-gradient(135deg,#d9d9d6,#b5b5b1)"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop" alt="Engenheiros com capacete" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop'"></div>
+</div></section>
+
+<section class="dash" id="painel"><div class="wrap">
+<h2>Painel do gestor</h2><p class="lead">Obras, custos e equipas em tempo real.</p>
+<div class="kpis"><div class="kpi"><b id="a1">0</b><span>Obras activas</span></div><div class="kpi"><b>312</b><span>Trabalhadores no terreno</span></div><div class="kpi"><b>184 M</b><span>Custo acumulado (MZN)</span></div><div class="kpi"><b>91%</b><span>Orçamento cumprido</span></div></div>
+<div class="box"><h3>Obras activas</h3><table><thead><tr><th>Obra</th><th>Equipa</th><th>Custo / Orçamento</th><th>Progresso</th></tr></thead><tbody id="dt"></tbody></table></div>
+</div></section>
+
+<section id="visita"><div class="wrap two">
+<div style="aspect-ratio:4/5;background:linear-gradient(135deg,#d9d9d6,#b5b5b1)"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Edifício moderno" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1200&auto=format&fit=crop'"></div>
+<div><h2>Pedido de visita ao terreno</h2><p class="lead">Um engenheiro visita o seu terreno em 48 horas, sem custos.</p>
+<div id="vf"><label for="vn">Nome</label><input id="vn"><label for="vt">Telefone</label><input id="vt"><label for="vl">Localização do terreno</label><input id="vl" placeholder="Ex.: Costa do Sol, Maputo"><label for="vd">Data preferida</label><input id="vd" type="date">
+<button class="btn" style="margin-top:20px" onclick="vis()">Pedir visita</button></div><div class="res" id="vr" style="display:none"></div></div>
+</div></section>
+
+<section class="band" id="clientes"><div class="wrap"><h2>Clientes</h2><p class="lead">O que dizem quem já entregou a obra à VETTA.</p>
+<div class="quotes">
+<div class="q"><p>Entregaram a moradia duas semanas antes do prazo e dentro do orçamento.</p><div><span class="av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop" alt="Cliente"></span><span><b>Eduardo Macamo</b><small>Moradia, Sommerschield</small></span></div></div>
+<div class="q"><p>Comunicação clara, relatórios semanais e zero surpresas nos custos.</p><div><span class="av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop" alt="Cliente"></span><span><b>Helena Cossa</b><small>Directora, Grupo Nhamba</small></span></div></div>
+<div class="q"><p>Construíram o nosso armazém em 7 meses. Recomendo sem hesitar.</p><div><span class="av"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop" alt="Cliente"></span><span><b>Rui Tembe</b><small>Armazém, Machava</small></span></div></div>
+</div></div></section>
+
+<footer><div class="wrap"><span class="logo">VETTA<i>.</i></span><span>Av. 25 de Setembro 800, Maputo · Projecto fictício</span><span>© 2026 VETTA Construções</span></div></footer>
+
+<div class="modal" id="m"><div class="sheet"><button class="x" onclick="cl()" aria-label="Fechar">×</button><div id="mc"></div></div></div>
+
+<script>
+const $=id=>document.getElementById(id),F=n=>n.toLocaleString('pt-PT');
+const fb='https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop';
+const u=id=>`https://images.unsplash.com/${id}?q=80&w=1200&auto=format&fit=crop`;
+const OB=[
+{n:'Torre Ibo',l:'Polana, Maputo',v:420,s:'Em construção',p:64,t:'Edifício · 14 pisos',a:'9 800 m²',eq:86,i:'photo-1486406146926-c627a92ad1ab',g:['photo-1503387762-592deb58ef4e','photo-1541888946425-d81bb19240f5']},
+{n:'Residências Marés',l:'Costa do Sol, Maputo',v:185,s:'Em construção',p:38,t:'Moradias · 24 unidades',a:'5 200 m²',eq:54,i:'photo-1512917774080-9991f1c4c750',g:['photo-1504307651254-35680f356dfd','photo-1600585154340-be6161a56a0c']},
+{n:'Centro Empresarial Zambi',l:'Baixa, Maputo',v:310,s:'Concluído',p:100,t:'Escritórios · 8 pisos',a:'7 400 m²',eq:0,i:'photo-1545324418-cc1a3fa10c00',g:['photo-1486406146926-c627a92ad1ab','photo-1487958449943-2429e8be8625']},
+{n:'Armazém Machava Norte',l:'Machava, Matola',v:96,s:'Concluído',p:100,t:'Industrial',a:'6 000 m²',eq:0,i:'photo-1504307651254-35680f356dfd',g:['photo-1503387762-592deb58ef4e','photo-1486325212027-8081e485255e']},
+{n:'Villa Sol',l:'Sommerschield, Maputo',v:58,s:'Concluído',p:100,t:'Moradia de luxo',a:'620 m²',eq:0,i:'photo-1600585154340-be6161a56a0c',g:['photo-1600607687939-ce8a6c25118c','photo-1512917774080-9991f1c4c750']},
+{n:'Edifício Mahotas',l:'Mahotas, Maputo',v:142,s:'Em construção',p:81,t:'Apartamentos · 9 pisos',a:'4 800 m²',eq:72,i:'photo-1486325212027-8081e485255e',g:['photo-1541888946425-d81bb19240f5','photo-1503387762-592deb58ef4e']},
+{n:'Hub Logístico Beluluane',l:'Beluluane, Matola',v:260,s:'Em construção',p:22,t:'Industrial · 3 naves',a:'18 000 m²',eq:120,i:'photo-1541888946425-d81bb19240f5',g:['photo-1504307651254-35680f356dfd','photo-1503387762-592deb58ef4e']}];
+let fil='Todas';
+function img(id,alt){return `<img src="${u(id)}" alt="${alt}" onerror="this.onerror=null;this.src='${fb}'">`}
+function render(){$('fl').innerHTML=['Todas','Em construção','Concluído'].map(f=>`<button class="${f==fil?'on':''}" onclick="fil='${f}';render()">${f}</button>`).join('');
+$('gr').innerHTML=OB.map((o,i)=>({o,i})).filter(x=>fil=='Todas'||x.o.s==fil).map(({o,i})=>`<button class="obra" onclick="det(${i})"><div class="ph">${img(o.i,o.n)}<span class="st">${o.s}</span></div><h3>${o.n}</h3><p>${o.l} · ${o.v} M MZN</p><div class="bar"><i style="width:${o.p}%"></i></div></button>`).join('')}
+render();
+function det(i){const o=OB[i];$('mc').innerHTML=`<div class="gal"><div>${img(o.i,o.n)}</div><div>${img(o.g[0],o.n)}</div><div>${img(o.g[1],o.n)}</div></div><div class="in"><h2>${o.n}</h2><p style="color:var(--mute)">${o.l} · ${o.t}</p>
+<div class="facts"><div><b>${o.v} M MZN</b><span>Valor da obra</span></div><div><b>${o.a}</b><span>Área construída</span></div><div><b>${o.s}</b><span>Estado</span></div></div>
+<b>Progresso: ${o.p}%</b><div class="bar" style="height:10px"><i style="width:${o.p}%"></i></div>
+<p style="margin:22px 0;color:var(--mute)">Projecto desenvolvido com equipa própria de engenharia, fiscalização independente e plano de segurança certificado.</p>
+<a class="btn" href="#orcamento" onclick="cl()">Pedir orçamento semelhante</a></div>`;$('m').classList.add('open');$('m').scrollTop=0}
+function cl(){$('m').classList.remove('open')}
+document.onkeydown=e=>{if(e.key=='Escape')cl()};
+function orc(){const a=Math.max(20,+$('ar').value||0),b=Math.round(a*$('tp').value*$('ac').value/1000)*1000;
+$('or').innerHTML=`<div class="p">${F(b)} MZN</div><small>${F(Math.round(b*.92/1000)*1000)} a ${F(Math.round(b*1.1/1000)*1000)} MZN · prazo ≈ ${Math.max(4,Math.round(a/60+3))} meses · ${a} m²</small>`}
+$('dt').innerHTML=OB.filter(o=>o.s!='Concluído').map(o=>`<tr><td>${o.n}</td><td>${o.eq} pessoas</td><td>${Math.round(o.v*o.p/100*.98)} / ${o.v} M</td><td><div class="mini"><i style="width:${o.p}%"></i></div> ${o.p}%</td></tr>`).join('');
+function vis(){if(!$('vn').value.trim()||!$('vt').value.trim()||!$('vl').value.trim()){alert('Preencha nome, telefone e localização.');return}
+$('vf').style.display='none';$('vr').style.display='block';$('vr').innerHTML=`<div class="p">Visita pedida</div><small>${$('vn').value}, um engenheiro vai ligar para ${$('vt').value} para confirmar a visita a ${$('vl').value}${$('vd').value?' em '+$('vd').value:''}.</small>`}
+document.querySelectorAll('[data-n]').forEach(el=>new IntersectionObserver((es,ob)=>es.forEach(e=>{if(e.isIntersecting){const n=+el.dataset.n;let t0;const f=t=>{t0=t0||t;const p=Math.min((t-t0)/1300,1);el.textContent=Math.round(n*p);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f);ob.disconnect()}}),{threshold:.5}).observe(el));
+$('a1').textContent=OB.filter(o=>o.s!='Concluído').length;
+</script>
+</body>
+</html
